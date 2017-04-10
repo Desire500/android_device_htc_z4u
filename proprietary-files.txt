@@ -1,10 +1,54 @@
+# Configuration files
+etc/agps_rm
+
+# Executable files
+bin/charging
+bin/mpdecision
+bin/netsharing
+bin/rmt_storage
+bin/thermald
+
+# Audio
+lib/libhtc_acoustic.so
+
+# Camera
+lib/hw/camera.msm7627a.so
+lib/libcameraface.so
+lib/libcamerapp.so
+lib/libmmipl.so
+lib/libmmjpeg.so
+lib/liboemcamera.so
+lib/libposteffect.so
+
+# Chromatix
+lib/libchromatix_s5k6a1gx_default_video.so
+lib/libchromatix_s5k6a1gx_hdr.so
+
+# Graphics
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
-lib/egl/libGLES_android.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
 lib/egl/libq3dtools_adreno200.so
-lib/libgsl.so
+lib/libC2D2.so
 lib/libsc-a2xx.so
-etc/firmware/yamato_pm4.fw
-etc/firmware/yamato_pfp.fw
+
+# Misc libraries
+lib/libdiag.so
+lib/libdsutils.so
+lib/libgemini.so
+lib/libgsl.so
+lib/libidl.so
+lib/libmm-color-convertor.so
+lib/libOpenVG.so
+lib/libqmiservices.so
+lib/libqmi.so
+lib/libv8.so
+
+# Radio
+lib/libhtc_ril.so
+
+# Sensors
+lib/hw/sensors.msm7627a.so
+
+
