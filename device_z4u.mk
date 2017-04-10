@@ -7,37 +7,13 @@ $(call inherit-product-if-exists, vendor/htc/z4u/z4u-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/htc/z4u/overlay
 
-#LOCAL_PATH := device/htc/z4u
-#ifeq ($(TARGET_PREBUILT_KERNEL),)
-#	LOCAL_KERNEL := $(LOCAL_PATH)/kernel
-#else
-#	LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-#endif
-#
-#PRODUCT_COPY_FILES += \
-#    $(LOCAL_KERNEL):kernel
-
-TARGET_KERNEL_SOURCE := kernel/htc/z4u
-TARGET_KERNEL_CONFIG := z4u_defconfig
-TARGET_KERNEL_RECOVERY_CONFIG := z4u_defconfig
-
-$(call inherit-product, build/target/product/full.mk)
-
-PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
-PRODUCT_NAME := full_z4u
-PRODUCT_DEVICE := z4u
-
-
 # Ramdisk
 PRODUCT_COPY_FILES += \
-    device/htc/z4u/ramdisk/init:root/init \
-    #device/htc/z4u/ramdisk/adbd:root/sbin/adbd \
     device/htc/z4u/ramdisk/init.rc:root/init.rc \
-    device/htc/z4u/ramdisk/init.target.rc:root/init.target.rc \
+    device/htc/z4u/ramdisk/init.target.rc:root/init.z4u.rc \
     device/htc/z4u/ramdisk/init.usb.rc:root/init.usb.rc \
     device/htc/z4u/ramdisk/ueventd.rc:root/ueventd.rc \
     device/htc/z4u/ramdisk/ueventd.target.rc:root/ueventd.z4u.rc
-
 
 # Set usb type
 ADDITIONAL_DEFAULT_PROPERTIES += \
@@ -46,7 +22,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.adb.secure=0 \
     ro.secure=0
 
-# Graphics 
+# Graphics
 PRODUCT_PACKAGES += \
     copybit.msm7x27a \
     gralloc.msm7x27a \
@@ -59,7 +35,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libnetcmdiface
 
-# Hardware properties 
+# Hardware properties
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.xml:system/etc/permissions/android.hardware.camera.xml \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \

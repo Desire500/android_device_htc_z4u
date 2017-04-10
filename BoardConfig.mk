@@ -28,6 +28,8 @@ COMMON_GLOBAL_CFLAGS += -DHTCLOG
 
 BOARD_USES_QCOM_HARDWARE := true
 
+ANDROID_COMMON_BUILD_MK = true
+
 # fix this up by examining /proc/mtd on a running device
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16776192
@@ -50,6 +52,10 @@ BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 
 # OpenGL drivers config file path
 BOARD_EGL_CFG := device/htc/z4u/config/egl.cfg
+
+TARGET_KERNEL_SOURCE := kernel/htc/z4u
+TARGET_KERNEL_CONFIG := z4u_defconfig
+TARGET_KERNEL_RECOVERY_CONFIG := z4u_defconfig
 
 # Graphics
 BOARD_USE_SKIA_LCDTEXT := true
