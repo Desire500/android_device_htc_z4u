@@ -5,6 +5,14 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
 $(call inherit-product-if-exists, vendor/htc/z4u/z4u-vendor.mk)
 
+# Recovery
+PRODUCT_COPY_FILES += \
+		device/htc/z4u/recovery/sbin/choice_fn:recovery/root/sbin/choice_fn \
+    device/htc/z4u/recovery/sbin/detect_key:recovery/root/sbin/detect_key \
+    device/htc/z4u/recovery/sbin/offmode_charging:recovery/root/sbin/offmode_charging \
+    device/htc/z4u/recovery/sbin/power_test:recovery/root/sbin/power_test \
+		device/htc/z4u/recovery/recovery.fstab:recovery/root/recovery.fstab
+
 DEVICE_PACKAGE_OVERLAYS += device/htc/z4u/overlay
 
 # Ramdisk
