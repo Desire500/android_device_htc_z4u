@@ -97,14 +97,18 @@ TARGET_NO_HW_VSYNC := true
 BOARD_VOLD_MAX_PARTITIONS := 39
 
 # RECOVERY
+BOARD_HAS_SDCARD_INTERNAL := true
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
-BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
 
 TARGET_RECOVERY_FSTAB := device/htc/z4u/recovery/recovery.fstab
 BOARD_UMS_LUNFILE := "sys/class/android_usb/f_mass_storage/lun/file"
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
+
 TARGET_RECOVERY_FSTAB := device/htc/z4u/recovery/recovery.fstab
 
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/z4u/recovery/recovery_kernel
 #TARGET_PREBUILT_KERNEL := device/htc/z4u/recovery/recovery_kernel
+
+# FOR TWRP
+#BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"

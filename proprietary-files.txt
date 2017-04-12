@@ -1,54 +1,87 @@
-# Configuration files
-etc/agps_rm
-
-# Executable files
-bin/charging
-bin/mpdecision
-bin/netsharing
-bin/rmt_storage
-bin/thermald
-
-# Audio
-lib/libhtc_acoustic.so
-
-# Camera
-lib/hw/camera.msm7627a.so
-lib/libcameraface.so
-lib/libcamerapp.so
-lib/libmmipl.so
-lib/libmmjpeg.so
-lib/liboemcamera.so
-lib/libposteffect.so
-
-# Chromatix
-lib/libchromatix_s5k6a1gx_default_video.so
-lib/libchromatix_s5k6a1gx_hdr.so
-
-# Graphics
+# Adreno 200
+etc/firmware/yamato_pfp.fw
+etc/firmware/yamato_pm4.fw
 lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/egl/libGLESv1_CM_adreno200.so
 lib/egl/libGLESv2_adreno200.so
 lib/egl/libq3dtools_adreno200.so
+lib/libgsl.so
+lib/libOpenVG.so
+lib/libsc-a2xx.so
+lib/egl/eglsubAndroid.so
+lib/egl/libEGL_adreno200.so
 lib/libC2D2.so
 lib/libsc-a2xx.so
 
-# Misc libraries
+# Bluetooth
+bin/abtfilt
+bin/hci_qcomm_init
+
+# Camera
+lib/libcamera_client.so
+lib/libchromatix_s5k6a1gx_default_video.so
+lib/libchromatix_s5k6a1gx_hdr.so
+lib/libchromatix_ov2720_preview.so
+lib/libgemini.so
+lib/libmmipl.so
+lib/libmmjpeg.so
+lib/liboemcamera.so
+lib/hw/camera.msm7627a.so
+lib/libcameraface.so
+lib/libcamerapp.so
+lib/liboemcamera.so
+lib/libposteffect.so
+
+# FM Radio
+bin/fm_qsoc_patches
+
+# OMX
+lib/libDivxDrm.so
+lib/libdivxdrmdecrypt.so
+lib/libmm-adspsvc.so
+lib/libOmxH264Dec.so
+lib/libOmxIttiamVdec.so
+lib/libOmxMpeg4Dec.so
+lib/libOmxVidEnc.so
+
+# Qualcomm
+lib/libmm-abl-oem.so
+lib/libmm-abl.so
+lib/libqc-opt.so
+
+# RIL & misc
+bin/charging
+bin/mpdecision
+bin/netsharing
+bin/rmt_storage
+bin/thermald
+bin/rild
+bin/rmt_storage
+lib/libhtc_acoustic.so
+lib/libaudioeq.so
 lib/libdiag.so
 lib/libdsutils.so
-lib/libgemini.so
-lib/libgsl.so
 lib/libidl.so
-lib/libmm-color-convertor.so
-lib/libOpenVG.so
 lib/libqmiservices.so
 lib/libqmi.so
+lib/libril.so
+lib/libgemini.so
+lib/libgsl.so
+lib/libmm-color-convertor.so
+lib/libOpenVG.so
 lib/libv8.so
-
-# Radio
-lib/libhtc_ril.so
 
 # Sensors
 lib/hw/sensors.msm7627a.so
 
-
+# Wifi
+bin/hostapd
+etc/firmware/ath6k/AR6003/hw2.1.1/athtcmd_ram.bin
+etc/firmware/ath6k/AR6003/hw2.1.1/athwlan.bin
+etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
+etc/firmware/ath6k/AR6003/hw2.1.1/fw-4.bin
+etc/firmware/ath6k/AR6003/hw2.1.1/nullTestFlow.bin
+etc/firmware/ath6k/AR6003/hw2.1.1/utf.bin
+lib/modules/ath6kl_sdio.ko
+lib/modules/cfg80211.ko
