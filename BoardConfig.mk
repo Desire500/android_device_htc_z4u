@@ -21,9 +21,9 @@ TARGET_CPU_VARIANT := generic
 TARGET_CPU_SMP := true
 
 TARGET_KERNEL_SOURCE := kernel/htc/z4u
-TARGET_KERNEL_CONFIG := z4u_defconfig
+TARGET_KERNEL_CONFIG := cm-z4u_defconfig
 
-TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp -DICS_CAMERA_BLOB
 TARGET_GLOBAL_CPPFLAGS += -mtune=cortex-a5 -mfpu=neon -mfloat-abi=softfp
 
 # Bionic
@@ -36,19 +36,25 @@ BOARD_KERNEL_BASE := 0x03b00000
 BOARD_KERNEL_PAGESIZE := 2048
 
 # Graphics
-BOARD_EGL_CFG := device/htc/z4u/config/egl.cfg
+BOARD_EGL_CFG := device/htc/z4u/prebuilt/system/lib/egl/egl.cfg
 USE_OPENGL_RENDERER := true
 BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
+TARGET_QCOM_DISPLAY_VARIANT := legacy
+BOARD_ADRENO_DECIDE_TEXTURE_TARGET := true
 
+TARGET_SPECIFIC_HEADER_PATH := device/htc/z4u/include
 
 # Qualcomm hardware
 BOARD_USES_QCOM_HARDWARE := true
 COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Wi-Fi
 BOARD_WLAN_DEVICE := ath6kl
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_ath6kl
 BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_ath6kl
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 WIFI_DRIVER_MODULE_PATH := "/system/wifi/ath6kl_sdio.ko"
 WIFI_DRIVER_MODULE_NAME := "ath6kl_sdio"
@@ -64,6 +70,9 @@ TARGET_PROVIDES_LIBAUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+
+#Dalvik
+TARGET_ARCH_LOWMEM := true
 
 # Camera
 BOARD_NEEDS_MEMORYHEAPPMEM := true
@@ -83,29 +92,22 @@ ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
 # fix this up by examining /proc/mtd on a running device
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16776192
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16776704
+BOARD_BOOTIMAGE_PARTITION_SIZE :=  15499511
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 15499511
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2013264896
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 1342177280
-
 BOARD_FLASH_BLOCK_SIZE := 131072
-BOARD_HAS_SDCARD_INTERNAL := true
-
-TARGET_NO_HW_VSYNC := true
 
 # Vold
 BOARD_VOLD_MAX_PARTITIONS := 39
 
 # RECOVERY
 BOARD_HAS_SDCARD_INTERNAL := true
-TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_storage/lun0/file"
-
 TARGET_RECOVERY_FSTAB := device/htc/z4u/recovery/recovery.fstab
 BOARD_UMS_LUNFILE := "sys/class/android_usb/f_mass_storage/lun/file"
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-TARGET_RECOVERY_FSTAB := device/htc/z4u/recovery/recovery.fstab
+BOARD_HAS_LARGE_FILESYSTEM := true
 
 #TARGET_PREBUILT_RECOVERY_KERNEL := device/htc/z4u/recovery/recovery_kernel
 #TARGET_PREBUILT_KERNEL := device/htc/z4u/recovery/recovery_kernel
