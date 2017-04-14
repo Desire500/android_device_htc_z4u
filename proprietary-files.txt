@@ -58,6 +58,7 @@ bin/rmt_storage
 bin/thermald
 bin/rild
 bin/rmt_storage
+bin/htc_ebdlogd
 lib/libhtc_acoustic.so
 lib/libaudioeq.so
 lib/libdiag.so
@@ -77,9 +78,6 @@ lib/hw/sensors.msm7627a.so
 
 # Wifi
 bin/hostapd
-bin/ath6kl-fwlog-record
-bin/athtestcmd
-bin/iw_ath
 etc/firmware/ath6k/AR6003/hw2.1.1/athtcmd_ram.bin
 etc/firmware/ath6k/AR6003/hw2.1.1/athwlan.bin
 etc/firmware/ath6k/AR6003/hw2.1.1/bdata.bin
