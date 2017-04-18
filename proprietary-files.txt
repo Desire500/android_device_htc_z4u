@@ -58,6 +58,7 @@ bin/rmt_storage
 bin/thermald
 bin/rild
 bin/rmt_storage
+bin/htc_ebdlogd
 lib/libhtc_acoustic.so
 lib/libaudioeq.so
 lib/libdiag.so

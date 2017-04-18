@@ -84,4 +84,11 @@ PRODUCT_COPY_FILES += \
   vendor/htc/z4u/proprietary/etc/firmware/ath6k/AR6003/hw2.1.1/nullTestFlow.bin:system/etc/firmware/ath6k/AR6003/hw2.1.1/nullTestFlow.bin \
   vendor/htc/z4u/proprietary/etc/firmware/ath6k/AR6003/hw2.1.1/utf.bin:system/etc/firmware/ath6k/AR6003/hw2.1.1/utf.bin \
   vendor/htc/z4u/proprietary/lib/modules/ath6kl_sdio.ko:system/lib/modules/ath6kl_sdio.ko \
-  vendor/htc/z4u/proprietary/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko
+  vendor/htc/z4u/proprietary/lib/modules/cfg80211.ko:system/lib/modules/cfg80211.ko \
+	vendor/htc/z4u/proprietary/bin/cand:system/bin/cand \
+  vendor/htc/z4u/proprietary/bin/clockd:system/bin/clockd \
+	vendor/htc/z4u/proprietary/bin/hdmid:system/bin/hdmid \
+  vendor/htc/z4u/proprietary/bin/pnpmgr:system/bin/pnpmgr \
+  vendor/htc/z4u/proprietary/bin/qb_offmode_alarm:system/bin/qb_offmode_alarm \
+  vendor/htc/z4u/proprietary/bin/sdptool:system/bin/sdptool \
+  vendor/htc/z4u/proprietary/bin/zchgd:system/bin/zchgd \
