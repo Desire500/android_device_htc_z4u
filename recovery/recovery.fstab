@@ -6,3 +6,5 @@
 /system     ext4        /dev/block/mmcblk0p40
 /data       ext4        /dev/block/mmcblk0p41
 /sdcard     vfat        /dev/block/mmcblk1p1        /dev/block/mmcblk1
+/devlog     ext4        /dev/block/mmcblk0p37
+/misc       emmc        /dev/block/mmcblk0p17

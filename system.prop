@@ -2,130 +2,111 @@
 # system.prop for z4u
 #
 
+# The OpenGL ES API level that is natively supported by this device.
+# This is a 16.16 fixed point number
+ro.opengles.version = 131072
+
 # density in DPI of the LCD of this board. This is used to scale the UI
 # appropriately. If this property is not defined, the default value is 160 dpi.
 
 ro.sf.lcd_density = 240
 
-# Telephony
-rild.libpath=/system/lib/libhtc_ril.so
+#+SSD_RIL
+#rild.libpath=/system/lib/libhtc_ril.so
+#rild.libpath=/system/lib/libril-qc-1.so
 rild.libargs=-d /dev/smd0
-ro.ril.hsdpa.category=8
-ro.ril.fast.dormancy.rule=1
-ril.subscription.types=NV,RUIM
-ro.telephony.ril_class=HTCQualcommRIL
-ro.telephony.ril.v3=datacallapn,signalstrength
+#Enable ADB Logging on QCRIL
+persist.radio.adb_log_on=1
+#Enable dual SIM dual standby
+persist.dsds.enabled=true
+# For workaround for ro.baseband property. QCT use the property same as radio version to determine the architecture.
+# But we hard code to msm for Primods.
+ro.baseband.arch = msm
+#-SSD_RIL
+
+# RilLibPath for Ganlite by Godel_Chen
+rild.libpath.ganlite=/system/lib/librilswitch.so
+rilswitch.vendorlibpath=/system/lib/libhtc_ril.so
+rilswitch.ganlibpath=/system/lib/libganril.so
+
+# +porting from pyramid by RIL_Jared.
+# Modify MMS APN retry timer from 5s to 2s.
+ro.gsm.2nd_data_retry_config = max_retries=3, 2000, 2000, 2000
+
+# RF team request
+ro.ril.enable.dtm = 0
+ro.ril.gprsclass = 12
+ro.ril.hsdpa.category = 8
+ro.ril.hsupa.category = 6
+ro.ril.hsxpa = 2
+
+# Default network type
+# 0 => WCDMA Preferred.
 ro.telephony.default_network = 0
-DEVICE_PROVISIONED=1
 
-# For PDP overlap problem
-ro.ril.avoid.pdp.overlap = 1
+wifi.interface=wlan0
+wifi.supplicant_scan_interval=15
+wifi.softap.interface=wlan0
+wifi.softapconcurrent.interface=wl0.1
+wlan.driver.ath=1
+init.svc.wpa_supplicant=
+init.svc.dhcpcd_wlan0=
+wifi.wpa_supp_ready=
+wlan.driver.status=
+persist.wifi.v6=true
+persist.wifi.v6.rs.count=5
+persist.wifi.v6.rs.timeout=5
+dhcp.wlan0.autoip=
+dhcp.wlan0.dns1=
+dhcp.wlan0.dns2=
+dhcp.wlan0.dns3=
+dhcp.wlan0.dns4=
+dhcp.wlan0.gateway=
+dhcp.wlan0.ipaddress=
+dhcp.wlan0.leasetime=
+dhcp.wlan0.mask=
+dhcp.wlan0.ooxx=
+dhcp.wlan0.pid=
+dhcp.wlan0.reason=
+dhcp.wlan0.result=
+dhcp.wlan0.server=
+net.wlan0.dns1=
+net.wlan0.dns2=
 
-#For NITZ power saving mode
-ro.ril.enable.nitz = 3
 
-# For the agps default value
+debug.sf.hw = 1
+debug.composition.type = dyn
+debug.enabletr = false
+debug.qctwa.preservebuf = 1
+debug.egl.buffcount=4
+ro.hwui.renderer.disable_opaque=true
+
+# For the default value of agps
 ro.ril.def.agps.mode = 2
 
 # For HSDPA low throughput
 ro.ril.disable.power.collapse = 1
 
-# Modify MTU from 1500 to 1472 on 3G network
-ro.ril.set.mtusize = 1472
-ro.ril.set.mtu1472 = 1
+# Enable SIM Hot-Swap feature
+ro.ril.enable.sim.hot.swap = 1
 
-# Time between scans in seconds. Keep it high to minimize battery drain.
-# This only affects the case in which there are remembered access points,
-# but none are in range.
-wifi.supplicant_scan_interval=180
-wifi.interface=eth0
-wifi.softap.interface=eth0
+# For Pyramid China NEL
+ro.ril.enable.prl.recognition = 1
 
-# View configuration for QVGA
-view.fading_edge_length = 8
-view.touch_slop = 15
-view.minimum_fling_velocity = 25
-view.scroll_friction = 0.008
+# support sdcard2
+ro.sdcard2 = 1
 
-# The OpenGL ES API level that is natively supported by this device.
-# This is a 16.16 fixed point number
-ro.opengles.version = 131072
+# For ext4 file system
+ro.ext4fs = 1
 
-# For no auto focus devices
-ro.workaround.noautofocus = 1
+#3LM encryption support
+ro.3LM_SD_ENCRYPT=false
 
-# Increase SKIA decode memory capability for progressive jpg file
-ro.media.dec.jpeg.memcap = 20000000
+# Simulate sdcard on /data/media (For fuse emmc)
+persist.fuse_sdcard=true
 
-# For QC perf binary hooks
-# src:vendor/qcom/proprietary/android-perf/release/lib/<CPU arch>/libqc-opt.so
-com.qc.hardware=true
-ro.vendor.extension_library=/system/lib/libqc-opt.so
-dev.pm.dyn_samplingrate=1
-dev.pm.dyn_sample_period=700000
+# For OTG usb storage
+ro.usb_host = 1
 
-# HTC Acoustic
-htc.audio.alc.enable = 1
-htc.audio.swalt.enable = 1
-
-# Display
-debug.composition.7x25A.type=mdp
-debug.composition.type=mdp
-ro.hw_plat=7x27a
-ro.bq.gpu_to_cpu_unsupported=1
-ro.max.fling_velocity=4000
-com.qc.hdmi_out=false
-debug.camcorder.disablemeta=1
-debug.qctwa.statusbar=1
-debug.qctwa.preservebuf=1
-debug.gr.numframebuffers=3
-debug.qc.hardware=true
-debug.enabletr=false
-debug.hwui.render_dirty_regions=false
-debug.sf.hw=1
-debug.hwc.dynThreshold=1.9
-debug.fb.rgb565=0
-
-# Video Acceleration
-video.accelerate.hw=1
-debug.performance.tuning=1
-
-# Low Power Audio
-lpa.decode=false
-audio.decoder_override_check=true
-use.non-omx.mp3.decoder=true
-use.non-omx.aac.decoder=true
-
-# Media
-ro.media.enc.jpeg.quality=100
-media.stagefright.enable-player=true
-media.stagefright.enable-scan=true
-media.stagefright.enable-http=true
-media.stagefright.enable-fma2dp=true
-media.stagefright.enable-aac=true
-media.stagefright.enable-qcp=true
-media.stagefright.enable-meta=false
-
-# Dalvik
-dalvik.vm.heapsize=48m
-ro.zram.default=0
-ro.sys.fw.bg_apps_limit=7
-sys.mem.max_hidden_apps=7
-dalvik.vm.checkjni=0
-dalvik.vm.checkjni=false
-dalvik.vm.dexopt-data-only=1
-dalvik.vm.dexopt-flags=v=a,o=v,m=y,u=y
-dalvik.vm.execution-mode=int:jit
-dalvik.vm.verify-bytecode=false
-dalvik.vm.lockprof.threshold=500
-dalvik.vm.heaptargetutilization=0.25
-dalvik.vm.debug.alloc=0
-
-# Misc
-ro.use_data_netmgrd=true
-persist.data.ds_fmc_app.mode=0
-httplive.enable.discontinuity=true
-ro.config.sync=yes
-ro.phone_storage=0
-ro.kernel.android.checkjni=0
-ro.android.secure=0
+# dynamic switch
+ro.dynamic_switch = 1
