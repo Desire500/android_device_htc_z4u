@@ -58,6 +58,8 @@ TARGET_PROVIDES_LIBAUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
+BOARD_BLUEDROID_VENDOR_CONF := device/htc/z4u/bluetooth/vnd_z4u.txt
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR ?= device/htc/z4u/bluetooth
 
 #Dalvik
 TARGET_ARCH_LOWMEM := true
