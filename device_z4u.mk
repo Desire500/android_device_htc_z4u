@@ -11,7 +11,7 @@ DEVICE_PACKAGE_OVERLAYS += device/htc/z4u/overlay
 ADDITIONAL_DEFAULT_PROPERTIES += \
     persist.sys.usb.config=mass_storage,adb
 
-    # Audio
+# Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_policy.msm7x27a \
