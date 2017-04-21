@@ -43,7 +43,8 @@ PRODUCT_PACKAGES += \
 # Other
 PRODUCT_PACKAGES += \
     libnetcmdiface \
-		power.msm7x27a
+    power.msm7x27a \
+    lights.z4u
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
