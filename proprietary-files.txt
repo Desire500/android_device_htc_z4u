@@ -13,6 +13,7 @@ lib/egl/eglsubAndroid.so
 lib/egl/libEGL_adreno200.so
 lib/libC2D2.so
 lib/libsc-a2xx.so
+lib/libqdutils.so
 
 # Bluetooth
 bin/abtfilt
